@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('images')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('is_visible')->default(false);
+            $table->boolean('is_lesson')->default(false);
             $table->timestamps();
         });
     }
