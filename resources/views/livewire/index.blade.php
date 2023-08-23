@@ -1,7 +1,7 @@
 <div>
     <div>
         <div
-            class="relative bg-cover bg-center bg-no-repeat py-8"
+            class="relative h-screen bg-cover bg-center bg-no-repeat py-8"
             style="background-image: url({{ asset('/img/bg-hero.jpg') }})"
         >
             <div
