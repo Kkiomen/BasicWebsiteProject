@@ -1,5 +1,4 @@
 <div>
-
     <section class="container-sm mx-auto px-4">
         <article>
             <div class="mb-6 text-center">
@@ -55,10 +54,14 @@
 
                 </div>
             </div>
-            <img
-                alt="Thumbnail" fetchpriority="high" decoding="async" data-nimg="fill"
-                class="object-cover transition-all" sizes="(max-width: 768px) 30vw, 33vw"
-                src="{{ asset('storage/'. $article->images) }}">
+
+            @if(!empty($article->images))
+                <img
+                    alt="Thumbnail" fetchpriority="high" decoding="async" data-nimg="fill"
+                    class="object-cover transition-all" sizes="(max-width: 768px) 30vw, 33vw"
+                    src="{{ asset('storage/'. $article->images) }}">
+            @endif
+
             <hr class="mt-3"/>
             <div class="text-article mt-10">
                 {!! $content !!}
@@ -150,7 +153,7 @@
                                                 <i class="fa-solid fa-eye-slash me-3" ></i> {{ __('home.click_to_show') }}
                                             </div>
                                             <div x-show="solution{{$loop->index}}">
-                                                {{ $task->solution }}
+                                                {!! $task->solution !!}
                                             </div>
                                         </dd>
                                     </div>

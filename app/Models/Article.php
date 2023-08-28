@@ -24,11 +24,15 @@ class Article extends Model
         'is_lesson',
         'order',
         'content',
+        'assumptions',
+        'assumptions_all',
         'short_content',
     ];
 
     protected $casts = [
         'tags' => 'array',
+        'assumptions' => 'array',
+        'assumptions_all' => 'array',
     ];
 
     public function category(): BelongsTo

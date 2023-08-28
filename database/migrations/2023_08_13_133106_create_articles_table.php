@@ -19,10 +19,12 @@ return new class extends Migration
             $table->text('content');
             $table->text('short_content');
             $table->date('published_date');
-            $table->text('tags');
+            $table->text('tags')->nullable();
             $table->text('author')->nullable();
             $table->text('images')->nullable();
             $table->integer('order')->default(0);
+            $table->text('assumptions')->nullable();
+            $table->text('assumptions_all')->nullable();
             $table->boolean('is_visible')->default(false);
             $table->boolean('is_lesson')->default(false);
             $table->timestamps();

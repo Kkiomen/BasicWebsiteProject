@@ -53,7 +53,15 @@
 
 .text-article h2{
     margin-top: 1.8rem;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
     font-size: calc(1.305rem + 0.66vw);
+}
+.text-article h3{
+    margin-top: 1.8rem;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+    font-size: calc(1rem + 0.55vw);
 }
 .text-article p{
     margin-top: 0;
@@ -135,4 +143,8 @@
 
 .hljs-link {
     text-decoration: underline;
+}
+
+pre code {
+    margin-bottom: 10px;
 }

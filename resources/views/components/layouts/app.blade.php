@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ env('LOCALE') }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ \Illuminate\Support\Facades\Lang::get('basic.title_page') }}</title>
+    @if(isset($article))
+        <title>{{ $article->title }}</title>
+        <meta property="og:title" content="{{ $article->title }}">
+        <meta property="og:description" content="{{ $article->short_content }}">
+        <meta property="og:url" content="{{ route('article', ['category_slug' => $article->category->slug, 'article_slug' => $article->slug]) }}">
+    @else
+        <title>{{ \Illuminate\Support\Facades\Lang::get('basic.title_page') }}</title>
+    @endif
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">

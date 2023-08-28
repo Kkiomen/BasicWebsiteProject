@@ -51,26 +51,9 @@ class ArticleResource extends Resource
                     ]),
                 Forms\Components\Section::make()
                     ->schema([
-                        Forms\Components\RichEditor::make('content')
+                        Forms\Components\Textarea::make('content')
                             ->label(Lang::get('article.description'))
-                            ->toolbarButtons([
-                                'code',
-                                'attachFiles',
-                                'blockquote',
-                                'bold',
-                                'bulletList',
-                                'codeBlock',
-                                'h2',
-                                'h3',
-                                'italic',
-                                'link',
-                                'orderedList',
-                                'redo',
-                                'strike',
-                                'underline',
-                                'undo',
-                                'code',
-                            ]),
+                            ->rows(20)
                     ]),
                 Forms\Components\Textarea::make('short_content')
                     ->label(Lang::get('article.short_description'))
@@ -84,8 +67,7 @@ class ArticleResource extends Resource
                                     ->label(Lang::get('article.published_date'))
                                     ->required(),
                                 Forms\Components\TagsInput::make('tags')
-                                    ->label(Lang::get('article.tags'))
-                                    ->required(),
+                                    ->label(Lang::get('article.tags')),
                             ]),
                         Forms\Components\TextInput::make('author')
                             ->label(Lang::get('article.author'))
@@ -97,7 +79,12 @@ class ArticleResource extends Resource
                     ->label(Lang::get('article.order'))
                     ->numeric()
                     ->columnSpanFull()
+                    ->required()
                     ->minValue(0),
+                Forms\Components\TagsInput::make('assumptions')
+                    ->columnSpanFull(),
+                Forms\Components\TagsInput::make('assumptions_all')
+                    ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_lesson')
                     ->label(Lang::get('article.is_lesson')),
                 Forms\Components\Toggle::make('is_visible')

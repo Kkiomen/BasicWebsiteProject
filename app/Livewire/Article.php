@@ -17,7 +17,7 @@ class Article extends Component
         if(!$this->article || !$this->category){
             abort(404);
         }
-        $this->articleRandom = \App\Models\Article::whereNotIn('id', [$this->article->id])->inRandomOrder()->limit(2)->get();
+        $this->articleRandom = \App\Models\Article::where('is_visible', 1)->whereNotIn('id', [$this->article->id])->inRandomOrder()->limit(2)->get();
     }
 
     public function render()
@@ -33,6 +33,6 @@ class Article extends Component
             'tasks' => TaskArticle::where('article_id', $this->article->id)->where('is_visible', true)->get(),
             'next_lesson' => $this->article->nextLesson(),
             'previous_lesson' => $this->article->previousLesson(),
-        ]);
+        ])->layoutData(['article' => $this->article]);
     }
 }

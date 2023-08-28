@@ -3,17 +3,19 @@
         <div class="grid gap-10 md:grid-cols-2 lg:gap-10 ">
             @foreach($articlesTop as $article)
                 <div class="group cursor-pointer">
-                    <div
-                        class=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                        <a class="relative block aspect-video"
-                           href="{{ route('article', ['category_slug' => $article->category->slug, 'article_slug' => $article->slug]) }}">
-                            <img
-                                alt="Thumbnail"
-                                class="object-cover transition-all" sizes="(max-width: 768px) 30vw, 33vw"
-                                src="{{ asset('storage/'. $article->images) }}"
-                                style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
-                        </a>
-                    </div>
+                    @if(!empty($article->images))
+                        <div
+                            class=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
+                            <a class="relative block aspect-video"
+                               href="{{ route('article', ['category_slug' => $article->category->slug, 'article_slug' => $article->slug]) }}">
+                                <img
+                                    alt="Thumbnail"
+                                    class="object-cover transition-all" sizes="(max-width: 768px) 30vw, 33vw"
+                                    src="{{ asset('storage/'. $article->images) }}"
+                                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                            </a>
+                        </div>
+                    @endif
                     <div class="">
                         <div>
                             <div class="flex gap-1">
@@ -55,17 +57,19 @@
         <div class="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
             @foreach($articlesMain as $article)
                 <div class="group cursor-pointer">
-                    <div
-                        class=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
-                        <a class="relative block aspect-video"
-                           href="{{ route('article', ['category_slug' => $article->category->slug, 'article_slug' => $article->slug]) }}">
-                            <img
-                                alt="Thumbnail" fetchpriority="high" decoding="async" data-nimg="fill"
-                                class="object-cover transition-all" sizes="(max-width: 768px) 30vw, 33vw"
-                                src="{{ asset('storage/'. $article->images) }}"
-                                style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
-                        </a>
-                    </div>
+                    @if(!empty($article->images))
+                        <div
+                            class=" overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800">
+                            <a class="relative block aspect-video"
+                               href="{{ route('article', ['category_slug' => $article->category->slug, 'article_slug' => $article->slug]) }}">
+                                <img
+                                    alt="Thumbnail" fetchpriority="high" decoding="async" data-nimg="fill"
+                                    class="object-cover transition-all" sizes="(max-width: 768px) 30vw, 33vw"
+                                    src="{{ asset('storage/'. $article->images) }}"
+                                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                            </a>
+                        </div>
+                    @endif
                     <div class="">
                         <div>
                             <div class="flex gap-1">
